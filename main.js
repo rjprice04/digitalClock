@@ -1,12 +1,13 @@
 
 var ctx;
 var canvas;
-let cornerRadius = 100;
+let cornerRadius = 200;
 let rectWidth;
 let rectHeight = 500;
 let rectWidthRadius;
 let rectHeightRadius;
-let rectY = 150;
+let rectY = 75;
+let yCorner = rectY+(cornerRadius/2);
 
 function setUp(){
     canvas = document.getElementById("canvas");
@@ -30,7 +31,6 @@ function addBoxes(ctx) {
     ctx.strokeStyle = "white";
     ctx.lineJoin = "round";
     ctx.lineWidth = cornerRadius;
-    let yCorner = rectY+(cornerRadius/2);
 
     for(var i = 0; i<3; i++){
         ctx.strokeRect(((i*(canvas.width/3)) + 10 )+(cornerRadius/2), yCorner, rectWidthRadius, rectHeightRadius);
@@ -47,17 +47,18 @@ function addNumbers(ctx) {
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
     var factor= rectWidthRadius/2;
+    var fact = rectHeightRadius + 50;
     var now = new Date();
 
     var hour = now.getHours();
     hour %= 12;
 
-    ctx.fillText(hour.toString(),(10+(cornerRadius/2)) + factor, 425);
+    ctx.fillText(hour.toString(),(10+(cornerRadius/2)) + factor, fact);
 
     var min = now.getMinutes();
-    ctx.fillText(min.toString(), ((canvas.width/3) + 10 )+(cornerRadius/2) + factor, 425);
+    ctx.fillText(min.toString(), ((canvas.width/3) + 10 )+(cornerRadius/2) + factor, fact);
 
     var sec = now.getSeconds();
-    ctx.fillText(sec.toString(), (2 * (canvas.width/3) + 10)+(cornerRadius/2)+ factor, 425);
+    ctx.fillText(sec.toString(), (2 * (canvas.width/3) + 10)+(cornerRadius/2)+ factor, fact);
 
 }
