@@ -15,14 +15,24 @@ function buildClock() {
     addNumbers(ctx);
 }
 function addedBoxes(ctx) {
+    var cornerRadius = 100;
+    var rectY = 150;
+    var rectWidth = (canvas.width/3 - 20);
+    var rectHeight = 500;
 
     ctx.beginPath();
+    ctx.lineJoin = "round";
+    ctx.lineWidth = cornerRadius;
 
-    ctx.rect(10,150,canvas.width/3 - 20,500);
+    ctx.strokeStyle = "white";
+    ctx.strokeRect(10+(cornerRadius/2), rectY+(cornerRadius/2), rectWidth-cornerRadius, rectHeight-cornerRadius);
+    ctx.rect(10+(cornerRadius/2), rectY+(cornerRadius/2), rectWidth-cornerRadius, rectHeight-cornerRadius);
 
-    ctx.rect( (canvas.width/3) + 10,150,canvas.width/3-20,500);
+    ctx.strokeRect(((canvas.width/3) + 10 )+(cornerRadius/2), rectY+(cornerRadius/2), rectWidth-cornerRadius, rectHeight-cornerRadius);
+    ctx.rect(((canvas.width/3) + 10)+(cornerRadius/2), rectY+(cornerRadius/2), rectWidth-cornerRadius, rectHeight-cornerRadius);
 
-    ctx.rect(2 * (canvas.width/3) + 10,150,canvas.width/3 - 20,500);
+    ctx.strokeRect((2 * (canvas.width/3) + 10)+(cornerRadius/2), rectY+(cornerRadius/2), rectWidth-cornerRadius, rectHeight-cornerRadius);
+    ctx.rect((2 * (canvas.width/3) + 10)+(cornerRadius/2), rectY+(cornerRadius/2), rectWidth-cornerRadius, rectHeight-cornerRadius);
 
     ctx.fillStyle = "white";
     ctx.fill();
